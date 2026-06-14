@@ -1,0 +1,15 @@
+apiVersion: v2
+name: headroom
+description: A Helm chart for running the Headroom token compression proxy on Kubernetes
+type: application
+version: 0.1.0
+appVersion: "latest"
+home: https://headroom-docs.vercel.app/docs
+sources:
+  - https://github.com/chopratejas/headroom
+keywords:
+  - llm
+  - proxy
+  - compression
+  - headroom
+maintainers: []

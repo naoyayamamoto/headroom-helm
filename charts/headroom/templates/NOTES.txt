@@ -1,0 +1,8 @@
+Headroom has been installed.
+
+Service DNS:
+  {{ include "headroom.fullname" . }}.{{ .Release.Namespace }}.svc.cluster.local:{{ .Values.service.port }}
+
+Health check:
+  kubectl -n {{ .Release.Namespace }} port-forward svc/{{ include "headroom.fullname" . }} {{ .Values.service.port }}:{{ .Values.service.port }}
+  curl http://localhost:{{ .Values.service.port }}/health

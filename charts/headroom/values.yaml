@@ -1,0 +1,93 @@
+replicaCount: 1
+
+image:
+  repository: ghcr.io/chopratejas/headroom
+  tag: latest
+  pullPolicy: IfNotPresent
+
+imagePullSecrets: []
+nameOverride: ""
+fullnameOverride: ""
+
+serviceAccount:
+  create: true
+  annotations: {}
+  name: ""
+
+podAnnotations: {}
+podLabels: {}
+
+podSecurityContext: {}
+
+securityContext: {}
+
+service:
+  type: LoadBalancer
+  port: 8787
+  targetPort: 8787
+  annotations: {}
+  labels: {}
+  nodePort: null
+
+containerPort: 8787
+
+env:
+  HEADROOM_HOST: "0.0.0.0"
+  HEADROOM_PORT: "8787"
+
+extraEnv: []
+extraEnvFrom: []
+
+args: []
+command: []
+
+persistence:
+  enabled: false
+  existingClaim: ""
+  storageClass: ""
+  accessModes:
+    - ReadWriteOnce
+  size: 1Gi
+  annotations: {}
+  mountPath: /data/headroom
+  logFile: ""
+  memoryDbPath: ""
+
+resources: {}
+
+livenessProbe:
+  enabled: true
+  path: /health
+  initialDelaySeconds: 10
+  periodSeconds: 20
+  timeoutSeconds: 3
+  failureThreshold: 3
+
+readinessProbe:
+  enabled: true
+  path: /health
+  initialDelaySeconds: 5
+  periodSeconds: 10
+  timeoutSeconds: 3
+  failureThreshold: 3
+
+autoscaling:
+  enabled: false
+  minReplicas: 1
+  maxReplicas: 3
+  targetCPUUtilizationPercentage: 80
+
+nodeSelector: {}
+tolerations: []
+affinity: {}
+
+ingress:
+  enabled: false
+  className: ""
+  annotations: {}
+  hosts:
+    - host: headroom.local
+      paths:
+        - path: /
+          pathType: Prefix
+  tls: []
