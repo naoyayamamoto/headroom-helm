@@ -78,12 +78,6 @@
           "type": "string",
           "pattern": "^/"
         },
-        "logFile": {
-          "type": "string"
-        },
-        "memoryDbPath": {
-          "type": "string"
-        }
       }
     },
     "autoscaling": {

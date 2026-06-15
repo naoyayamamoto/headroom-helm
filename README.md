@@ -48,10 +48,7 @@ helm upgrade --install headroom oci://ghcr.io/naoyayamamoto/headroom-helm/headro
   --set persistence.size=5Gi
 ```
 
-When persistence is enabled, the chart sets:
-
-- `HEADROOM_LOG_FILE=/data/headroom/proxy-requests.jsonl`
-- `HEADROOM_MEMORY_DB_PATH=/data/headroom/memory.db`
+When persistence is enabled, the PVC is mounted at `/root/.headroom` to persist dashboard savings data (`proxy_savings.json`).
 
 You can use an existing claim:
 
