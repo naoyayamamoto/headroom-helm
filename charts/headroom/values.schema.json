@@ -77,7 +77,7 @@
         "mountPath": {
           "type": "string",
           "pattern": "^/"
-        },
+        }
       }
     },
     "autoscaling": {
