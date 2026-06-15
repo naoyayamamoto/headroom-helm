@@ -49,9 +49,7 @@ persistence:
     - ReadWriteOnce
   size: 1Gi
   annotations: {}
-  mountPath: /data/headroom
-  logFile: ""
-  memoryDbPath: ""
+  mountPath: /root/.headroom
 
 resources: {}
 

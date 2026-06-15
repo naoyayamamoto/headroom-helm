@@ -55,12 +55,6 @@ spec:
             - name: {{ $name }}
               value: {{ $value | quote }}
             {{- end }}
-            {{- if .Values.persistence.enabled }}
-            - name: HEADROOM_LOG_FILE
-              value: {{ default (printf "%s/proxy-requests.jsonl" .Values.persistence.mountPath) .Values.persistence.logFile | quote }}
-            - name: HEADROOM_MEMORY_DB_PATH
-              value: {{ default (printf "%s/memory.db" .Values.persistence.mountPath) .Values.persistence.memoryDbPath | quote }}
-            {{- end }}
             {{- with .Values.extraEnv }}
             {{- toYaml . | nindent 12 }}
             {{- end }}
